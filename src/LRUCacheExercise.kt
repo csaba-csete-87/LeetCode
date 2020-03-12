@@ -28,6 +28,9 @@ class LRUCacheExercise {
                 map.remove(last)
             }
             map[key] = value
+            if(linkedList.contains(key)) {
+                linkedList.remove(key)
+            }
             if (linkedList.size >= capacity) {
                 linkedList.removeLast()
             }
