@@ -1,0 +1,12 @@
+Google Tips:
+
+G1.UniqueEmailAddresses
+- sets are good for unique elements
+G2.OddEvenJump
+- it's good to start from the back and come back to 0.
+- how would the conditions translate to when thinking backwards?
+G3.LicenseKeyFormatting
+- instead of calculating for each based of first element, fill it in from the back
+- how do the conditions modify when approaching from the end to front?
+G4.FruitsIntoBaskets
+-
