@@ -72,7 +72,42 @@ class WordSearch2 {
     }
 
     @Test
-    fun runTests() {
+    fun runTest() {
+        println(
+            findWords(
+                arrayOf(
+                    "abc".toCharArray(),
+                    "aed".toCharArray(),
+                    "afg".toCharArray()
+                ),
+                arrayOf("abcdefg", "gfedcbaaa", "eaabcdgfa", "befa", "dgc", "ade")
+            )
+        )
+        println(
+            findWords(
+                arrayOf(
+                    "ab".toCharArray(),
+                    "aa".toCharArray()
+                ),
+                arrayOf("aaba", "aba", "baa", "bab", "aaab", "aaa", "aaaa")
+            )
+        )
+        println(
+            findWords(
+                arrayOf(
+                    "ab".toCharArray()
+                ),
+                arrayOf("aba")
+            )
+        )
+        println(
+            findWords(
+                arrayOf(
+                    "aa".toCharArray()
+                ),
+                arrayOf("aaa")
+            )
+        )
         println(
             findWords(
                 arrayOf(
@@ -82,6 +117,14 @@ class WordSearch2 {
                     "iflv".toCharArray()
                 ),
                 arrayOf("oath", "pea", "eat", "rain")
+            )
+        )
+        println(
+            findWords(
+                arrayOf(
+                    "aa".toCharArray()
+                ),
+                arrayOf("aa")
             )
         )
     }

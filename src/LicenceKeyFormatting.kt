@@ -27,10 +27,12 @@ class LicenceKeyFormatting {
     }
 
     private fun licenseKeyFormattingV2(s: String, k: Int): String {
-        var result = StringBuilder()
+        val result = StringBuilder()
         for (i in s.length - 1 downTo 0)
             if (s[i] != '-') {
-                result = result.append(if (result.length % (k + 1) == k) "-" else "").append(s[i])
+                val isDashPosition = result.length % (k + 1) == k
+                if (isDashPosition) result.append("-")
+                result.append(s[i])
             }
         return result.toString().reversed().toUpperCase()
     }
@@ -41,11 +43,11 @@ class LicenceKeyFormatting {
         assertEquals("2-5G-3J", licenseKeyFormattingV2("2-5g-3-J", 2))
         assertEquals("2", licenseKeyFormattingV2("2", 2))
         assertEquals(
-            "K-MHVVUPIYOBPJTHZMDHZVBWQNWFDAJFIWUQVSUFRQSTUHORFISEJIBHTNEPRLBHJFNDNWFIJCTWBSKLJKRATHQSOWBOGDNAQODJO",
-            licenseKeyFormattingV2(
-                "----------kmhvVuPIyobPjThzMdhzvBWqNwfDajFiWUQvSUfrQsTuHorFisEjIbHtNEPrLbHJFnDNWFijctwBskljKratHqSOWBOgDnaQodjo",
-                99
-            )
+                "K-MHVVUPIYOBPJTHZMDHZVBWQNWFDAJFIWUQVSUFRQSTUHORFISEJIBHTNEPRLBHJFNDNWFIJCTWBSKLJKRATHQSOWBOGDNAQODJO",
+                licenseKeyFormattingV2(
+                        "----------kmhvVuPIyobPjThzMdhzvBWqNwfDajFiWUQvSUfrQsTuHorFisEjIbHtNEPrLbHJFnDNWFijctwBskljKratHqSOWBOgDnaQodjo",
+                        99
+                )
         )
     }
 }
