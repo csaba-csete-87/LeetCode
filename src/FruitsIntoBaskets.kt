@@ -1,87 +1,13 @@
 import org.junit.Test
 import java.util.*
+import kotlin.collections.HashMap
 import kotlin.test.assertEquals
 
 
 class FruitsIntoBaskets {
 
-    class MyLinkedList {
-        var head: Node? = null
-        var tail: Node? = null
-
-        fun insert(value: Int) {
-            val newNode = Node(value)
-            if (head == null) {
-                head = newNode
-                tail = newNode
-            } else {
-                tail?.next = newNode
-                newNode.prev = tail
-                tail = newNode
-            }
-        }
-    }
-
-    class Node(val data: Int) {
-        var next: Node? = null
-        var prev: Node? = null
-        var cnt: Int = 0
-    }
-
-    fun totalFruitV1(trees: IntArray): Int {
-        val linkedList = MyLinkedList()
-
-        var max = 0
-        for (tree in trees) {
-            var last = linkedList.tail
-            var prev = last?.prev
-            if (last == null) {
-                linkedList.insert(tree)
-                last = linkedList.tail
-                prev = linkedList.tail?.prev
-            } else if (prev == null && tree != last.data) {
-                linkedList.insert(tree)
-                last = linkedList.tail
-                prev = linkedList.tail?.prev
-            }
-            if (tree != last?.data && tree != prev?.data) {
-                linkedList.insert(tree)
-                last = linkedList.tail
-                prev = linkedList.tail?.prev
-            }
-            when (tree) {
-                last?.data -> last.cnt++
-                prev?.data -> prev.cnt++
-            }
-
-            printTree(linkedList)
-
-            val lastCnt = last?.cnt ?: 0
-            val prevCnt = prev?.cnt ?: 0
-            val crtMax = lastCnt + prevCnt
-            if (crtMax > max) {
-                max = crtMax
-            }
-        }
-        return max
-    }
-
-    fun totalFruit(trees: IntArray): Int {
-        if (trees.size < 3) {
-            return trees.size
-        } else {
-            var max = 2
-
-            var x = trees[0]
-            var y = trees[1]
-            for (i in 2 until trees.size) {
-
-            }
-            return max
-        }
-    }
-
     fun totalFruitAnswer(tree: IntArray): Int {
+        val counter = HashMap<Int, Int>()
         var ans = 0
         var i = 0
         val count = Counter()
@@ -108,15 +34,6 @@ class FruitsIntoBaskets {
         fun add(k: Int, v: Int) {
             put(k, get(k) + v)
         }
-    }
-
-    private fun printTree(linkedList: MyLinkedList) {
-        var node = linkedList.head
-        while (node != null) {
-            print("${node.data} -> ")
-            node = node.next
-        }
-        println()
     }
 
     @Test

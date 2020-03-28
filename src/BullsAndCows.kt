@@ -29,11 +29,11 @@ class BullsAndCows {
 
     @Test
     fun runTest() {
-        assertEquals("1A3B", getHint("1807", "7810"))
-        assertEquals("1A1B", getHint("1123", "0111"))
         assertEquals(
             "7A30B",
             getHint("102937461209471239587103456139045610345761", "109345613409756103470579613409576130495613")
         )
+        assertEquals("1A3B", getHint("1807", "7810"))
+        assertEquals("1A1B", getHint("1123", "0111"))
     }
 }

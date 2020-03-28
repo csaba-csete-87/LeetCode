@@ -1,12 +1,100 @@
 Google Tips:
 
-G1.UniqueEmailAddresses
-- sets are good for unique elements
-G2.OddEvenJump
-- it's good to start from the back and come back to 0.
-- how would the conditions translate to when thinking backwards?
-G3.LicenseKeyFormatting
-- instead of calculating for each based of first element, fill it in from the back
-- how do the conditions modify when approaching from the end to front?
-G4.FruitsIntoBaskets
--
+1. GENERAL
+    1.UniqueEmailAddresses
+        - sets are good for unique elements
+    2.OddEvenJump
+        - it's good to start from the back and come back to 0.
+        - how would the conditions translate to when thinking backwards?
+    3.LicenseKeyFormatting
+        - instead of calculating for each based of first element, fill it in from the back
+        - how do the conditions modify when approaching from the end to front?
+    4.FruitsIntoBaskets
+        - ???????????????????????????????????????????????????????????????????????????
+
+2. ARRAYS & STRINGS
+    1.Longest Substring Without Repeating Characters
+        - increasing sliding window
+        - if contains, shrink from left, if not, increase to right
+    2.Container with Most Water
+        - shrinking window technique, compare heights
+        - increase from left, decrease from right
+    3. 3-Sum (n-sum)
+        - sort array
+        - fix 1 number -> 3sum becomes 2sum
+        - shrinking window and see if sum = 0
+    4. Next Permutation
+        - ???????????????????????????????????????????????????????????????????????????
+
+3. LINKED LISTS
+    1.Add Two Numbers
+        - watch for carry, add carry at the end
+    2.Merge Two Sorted Lists
+        - compare and add smaller one, move to to next
+        - at the end finish both lists
+
+4. TREES & GRAPHS
+    1.Binary Tree Maximum Path Sum
+        - recursively calculate max gain for sides
+        - price is all 3 values
+        - return node + max of left & right
+    2.Word Ladder
+        - build generic words map which will be our graph
+        - BFS the graph, eliminating visited nodes
+    3.Number of Islands
+        -discover islands, expand land with queue, count them
+    4.Course Schedule
+        - ???????????????????????????????????????????????????????????????????????????
+
+5. RECURSION
+    1.Word Squares
+        - when navigating in a matrix of chars, backtracking with step nr and matrix
+        - build prefix as we go, get word by prefix from trie
+    2.Strobogrammatic Number II
+        - build up from the sides
+        - recurse based on previous cases
+    3.Word Search II
+        - for each cell on board: backtracking with coordinates, and parent trie node
+        - trie for get words by prefix
+
+6. SORTING & SEARCHING
+    1.Median of Two Sorted Arrays
+        -build 1 sorted array, get median
+    2.Find First and Last Position Element in Sorted Array
+        -binary search on either side, conditions are different
+        -@recursion mid+1 or mid-1
+    3.Merge Intervals
+        -sort intervals by starting side
+        -add intervals to linked list
+7. DYNAMIC PROGRAMMING
+    1.Longest Palindromic Substring
+        -expand around single letter
+        -expand around double letters
+    2.Maximum Subarray
+        -start from beginning add consecutive numbers, always keep max of sum or crt number
+    3.Best Time to Buy and Sell Stock
+        -update min price if small, else calculate profit, keep max
+
+8. DESIGN
+    1.LRU Cache
+        -Map of values to nodes, for fast get & put value, and fast access to node
+        -Doubly Linked List to keep sorting and arranging fast
+    2.Min Stack
+        - keep 2 stacks: 1 for the stack, on for the min values
+    3.Serialize and Deserialize Binary Tree
+        -use a queue to keep order of nodes
+        -use array to keep order of ints
+9. OTHERS
+    1.Reverse Integer
+        -convert to string, reverse, convert back to int
+    2.Candy
+        -problem is with the ends
+        -calculate from both sides
+    3.Isomorphic Strings
+        -map values
+    4.Strobogrammatic Number
+        -set up complements
+    5.Bulls and Cows
+        -count occurrences of numbers in each array
+        -count bulls in position
+        -for cows min occurrence of char - bulls

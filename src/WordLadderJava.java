@@ -1,9 +1,7 @@
-import com.sun.tools.javac.util.Pair;
+import kotlin.Pair;
 import org.junit.Test;
 
 import java.util.*;
-
-import static org.junit.Assert.assertEquals;
 
 public class WordLadderJava {
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
@@ -37,8 +35,8 @@ public class WordLadderJava {
 
         while (!Q.isEmpty()) {
             Pair<String, Integer> node = Q.remove();
-            String word = node.fst;
-            int level = node.snd;
+            String word = node.getFirst();
+            int level = node.getSecond();
             for (int i = 0; i < L; i++) {
 
                 // Intermediate words for current word
