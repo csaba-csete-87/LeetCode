@@ -3,6 +3,7 @@ package linked_lists
 import ListNode
 import org.junit.Test
 
+@ExperimentalStdlibApi
 class RemoveNthNodeFromEnd {
 
     fun removeNthFromEnd(head: ListNode?, n: Int): ListNode? {
@@ -21,16 +22,21 @@ class RemoveNthNodeFromEnd {
         }
         println("---")
         println(runner?.`val`)
-        if (runner == head) {
-            return null
+        return if (runner == null) {
+            head?.next
         } else {
-            runner?.next = runner?.next?.next
-            return head
+            runner.next = runner.next?.next
+            head
         }
     }
 
     @Test
     fun runTests() {
+        val lll1 = ListNode(1)
+        val lll2 = ListNode(2)
+        lll1.next = lll2
+        removeNthFromEnd(lll1, 2)
+
         val ll1 = ListNode(1)
         removeNthFromEnd(ll1, 1)
 

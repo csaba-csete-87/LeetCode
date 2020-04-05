@@ -14,10 +14,10 @@ class MergeIntervals {
     }
 
     fun merge(intervals: Array<IntArray>): Array<IntArray> {
-        val sorted = intervals.asList().sortedWith(IntervalComparator())
+        intervals.sortWith(IntervalComparator())
 
         val merged = LinkedList<IntArray>()
-        for (i in sorted) {
+        for (i in intervals) {
             if (merged.isEmpty() || merged.last[1] < i[0]) {
                 merged.add(i)
             } else {
@@ -37,7 +37,7 @@ class MergeIntervals {
                 intArrayOf(15, 18)
             )
         )
-        for(i in result) {
+        for (i in result) {
             println("${i[0]}:${i[1]}")
         }
     }
